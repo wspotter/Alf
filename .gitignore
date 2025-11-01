@@ -1,0 +1,53 @@
+# Third-party installations (installed via install.sh)
+open-webui/
+ComfyUI/
+Agent-S/
+cherry-studio/
+
+# Python
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+*.egg-info/
+dist/
+build/
+
+# Logs
+logs/
+*.log
+
+# Environment
+.env
+.env.local
+
+# Models (too large for git)
+models/
+*.ckpt
+*.safetensors
+*.pth
+
+# Node
+node_modules/
+package-lock.json
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Build artifacts
+*.egg-info/
+dist/
+build/
+
+# Checkpoints
+.repo-creation-checkpoint

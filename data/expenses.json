@@ -1,0 +1,10 @@
+[
+  {
+    "id": 1,
+    "amount": 45.5,
+    "category": "Meals",
+    "description": "Business lunch with new supplier",
+    "date": "2025-10-12",
+    "created_at": "2025-10-12T23:54:32.762Z"
+  }
+]

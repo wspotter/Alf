@@ -1,0 +1,28 @@
+# Chatterbox TTS Service Dockerfile
+# Uses Python 3.11 for compatibility
+FROM python:3.11-slim
+
+WORKDIR /app
+
+# Install system dependencies including build tools
+RUN apt-get update && apt-get install -y \
+    git \
+    ffmpeg \
+    build-essential \
+    g++ \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install numpy first (required by pkuseg during chatterbox install)
+RUN pip install --no-cache-dir 'numpy<1.26.0,>=1.24.0'
+
+# Install Chatterbox TTS and API dependencies
+RUN pip install --no-cache-dir chatterbox-tts fastapi uvicorn python-multipart
+
+# Copy API server
+COPY chatterbox_api.py /app/
+
+# Expose port
+EXPOSE 5003
+
+# Run the API server
+CMD ["uvicorn", "chatterbox_api:app", "--host", "0.0.0.0", "--port", "5003", "--log-level", "info"]
